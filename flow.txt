@@ -1,0 +1,24 @@
+#json file => facebok_accounts.json
+#FOR FACEBOOK PAGES
+- Every facebook page will have their own access token and needs to be used to get post and 
+comments. 
+- we get me/accounts which generates access token for all the pages 
+saves id, name and access token in json file 
+- loop through the json file and get longlived access token for all the pages 
+and save the token back to json files 
+
+
+# json file => ad_accounts.json
+#FOR FACEBOOK AD ACCOUNTS
+- This logic will workon smart solution ad accounts only 
+Smart solution ad account works on single access token which have create a long lived access token
+
+
+Flow of the project
+- Store all the campaign ads name and Id in the json file for ad accounts 
+- loop through all the ad campaings and check for all the ads with comment (get first 100 comments and negative comment)
+- save the new negative comments in a seperate list just like sending emails automation 
+- also save the time comment was posted in the json file
+
+- create a login to loop through both the files and check for new negative comments
+- send email with links to the list of negative email list 

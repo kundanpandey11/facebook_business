@@ -1,0 +1,45 @@
+celery worker needs to startted on the ubuntu with celery-server to fetch the default work url 
+
+#start redis-server
+redis-server
+
+# check redis server status 
+redis-cli PING
+
+# this is for the global users 
+# multiple users can be created 
+# single worker can run multiple task
+
+# start a worker 
+python -m celery -A mainhandle worker -l INFO 
+
+
+##celery -A myapp.celery worker --loglevel=info
+
+#beat 
+python3 -m celery -A mainhandle beat 
+
+
+
+# kill redis-server (forced) 
+$ ps aux | grep redis
+icon        48  0.2  0.6  64240 19408 ?        Sl   May12   2:51 redis-server *:6379
+$ kill -9 8821
+
+
+# to schedule a task or recurring the task celery beat is used
+look at 
+https://www.caktusgroup.com/blog/2021/08/11/using-celery-scheduling-tasks/
+
+
+Flow of the sofware
+1. fetch facebook leads every 30 mins (done)
+2. identify new leads after first task is performed 
+3. send mass email to the new leads 
+4. display a print message stating the emails have been sent 
+
+
+get subsystem folder
+
+
+
